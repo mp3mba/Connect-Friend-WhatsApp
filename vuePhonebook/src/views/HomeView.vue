@@ -1,33 +1,47 @@
 <template>
-  <div class="flex justify-center">
-    <table class="border-collapse border border-slate-500 p-2 mt-10">
-    <thead>
-      <tr>
-        <th class="border border-slate-500 p-2">WhatsApp Number</th>
-        <th class="border border-slate-500 p-2">Description</th>
-        <th class="border border-slate-500 p-2">Save To PhoneBook</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="user in users" :key="user.id">
-        <td class="border border-slate-500 p-2">{{ user.phone }}</td>
-        <td class="border border-slate-500 p-2">{{ user.description }}</td>
-        <td class="border border-slate-500 p-2">
-          <a  
-            :href="`tel: ${ user.phone }`"
-            class="bg-green-600 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
-          >
-            Click me
-        </a>
-        </td>
-      </tr>
-    </tbody>
-    </table>
+  <div class="md:w-4/5 xs:w-4/5 flex flex-col justify-center mt-10">
+    <div class="flex justify-end">
+      <button class="bg-green-600 hover:bg-green-600 text-white font-black p-2 font-bold">
+        <RouterLink :to="{name: 'add-number'}">
+          Add Contact
+        </RouterLink>
+      </button>
+    </div>
+    <div>
+      <table class="border-collapse border border-slate-500 w-full p-2 mt-10">
+      <thead>
+        <tr>
+          <th class="border border-slate-500 p-2">WhatsApp Number</th>
+          <th class="border border-slate-500 p-2">Description</th>
+          <th class="border border-slate-500 p-2">Save To PhoneBook</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="user in users" :key="user.id">
+          <td class="border border-slate-500 p-2">{{ user.phone }}</td>
+          <td class="border border-slate-500 p-2">{{ user.description }}</td>
+          <td class="border border-slate-500 xs:p-0 md:p-2 text-sm">
+            <a  
+              :href="`tel: ${ user.phone }`"
+              class="bg-green-600 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+            >
+              Click me
+          </a>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    <!-- <div v-else>
+      <h1 class="uppercase font-black">
+        no contacts yet!
+      </h1>
+    </div> -->
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, reactive } from 'vue'
 import axios from 'axios'
 
   let users = ref([]) 
@@ -37,6 +51,9 @@ import axios from 'axios'
         .then((response) => {
           console.log(response.data.users)
           users.value = response.data.users
+        })
+        .catch(err => {
+          console.log(err)
         })
   })
 
