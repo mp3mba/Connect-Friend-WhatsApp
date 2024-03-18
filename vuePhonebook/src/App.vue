@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-   <div class="min-h-screen bg-gray-300 text-center antialiased flex justify-center items-start">
+   <div class="min-h-screen bg-gradient-to-br from-cyan-900 to-green-900 text-center antialiased flex justify-center items-start">
     <RouterView />
   </div>
 </template>
