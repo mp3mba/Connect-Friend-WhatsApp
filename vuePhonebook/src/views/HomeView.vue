@@ -1,7 +1,7 @@
 <template>
   <div class="md:w-4/5 xs:w-4/5 flex flex-col justify-center mt-10">
     <div class="flex justify-end">
-      <button class="bg-gradient-to-r from-cyan-700 to-green-700 text-white font-black p-2 font-bold">
+      <button class="bg-gradient-to-r from-cyan-700 to-green-700 text-white font-black p-2 font-bold rounded-xl">
         <RouterLink :to="{name: 'add-number'}">
           Add Contact
         </RouterLink>

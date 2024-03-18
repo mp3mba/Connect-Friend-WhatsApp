@@ -1,8 +1,8 @@
 <template>
     <div class="md:w-3/5 xs:w-4/5 mx-auto border-2 border-green-600 rounded-xl p-8 mt-10">
         <div class="flex justify-between">
-            <h2 class="text-2xl font-bold mb-4 text-slate-400">Add Phone Number</h2>
-            <RouterLink :to="{name: 'home'}" class="bg-gradient-to-r from-cyan-700 to-green-700 flex justify-center items-center p-3 xs:py-6 sm:py-4 h-6 rounded-xl text-white font-black">
+            <h2 class="text-2xl font-bold mb-4 text-slate-400 flex justify-start items-center xs:text-lg sm:text-2xl">Add Phone Number</h2>
+            <RouterLink :to="{name: 'home'}" class="bg-gradient-to-r from-cyan-700 to-green-700 flex justify-center items-center p-3 xs:py-4 sm:py-4 h-6 rounded-xl text-white font-black xs:text-xs sm:text-sm">
                 Back home
             </RouterLink>
         </div>
@@ -33,7 +33,7 @@
         </textarea>
         </div>
         <div class="flex justify-center">
-          <button type="submit" class="w-2/5 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-cyan-700 to-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <button type="submit" class="xs:w-full md:w-2/5 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-cyan-700 to-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Add Phone Number
           </button>
         </div>
