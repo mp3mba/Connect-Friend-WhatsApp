@@ -46,15 +46,22 @@
   import { useRouter} from 'vue-router'
   import { vMaska } from 'maska'
   import axios from 'axios'
-
+  import { useNotification } from "@kyvg/vue3-notification"
+  
     let phone = ref() 
     let description = ref() 
     let router = useRouter()
+    const { notify }  = useNotification()
   
     let submitForm = () => {
         axios.post("http://127.0.0.1:8000/api/insert", {phone: phone.value, description:description.value})
             .then(res => {
-                alert(res.data.message)
+                notify({
+                  title: "Message",
+                  text: res.data.message,
+                  type: alert,
+                  speed: 5000,
+                })
                 router.push({name: 'home'})
 
             })
